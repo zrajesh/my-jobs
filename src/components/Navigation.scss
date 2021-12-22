@@ -1,0 +1,44 @@
+@import "../scss/variables";
+
+.navigation {
+    height: 70px;
+    .nav-container {
+        width: 90vw;
+        margin: 0 auto;
+        .nav-items {
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .nav-logo {
+                .logo {
+                    font-size: 22px;
+                    font-weight: bold;
+                    text-decoration: none;
+                    color: $white;
+                    .jobs {
+                        color: $blue;
+                    }
+                }
+            }
+            .nav-btn {
+                .auth {
+                    width: 8rem;
+                    height: 2.3rem;
+                    border-radius: .5rem;
+                    background: $view_btn_bg;
+                    border: 1px solid $blue;
+                    opacity: 1;
+                    cursor: pointer;
+                    color: $white;
+                    font-size: 16px;
+                }
+            }
+        }
+        .line {
+            width: 100%;
+            border: 1px solid $header_second;
+        }
+    }
+}
+
