@@ -1,0 +1,33 @@
+@import "../scss/variables";
+
+.regular-header {
+    height: 362px;
+    background-color: $header_bg;
+    color: $white;
+    position: relative;
+    .nav-items {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 5%;
+        .nav-logo {
+            .logo {
+                font-size: 22px;
+                font-weight: bold;
+                text-decoration: none;
+                color: $white;
+                .jobs {
+                    color: $blue;
+                }
+            }
+        }
+    }
+    .line {
+        width: 100%;
+        border: 1px solid $header_second;
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
+

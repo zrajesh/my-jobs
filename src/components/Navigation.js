@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import "./Navigation.scss";
 
 const Navigation = () => {
+
     return (
         <nav className="navigation">
             <div className="nav-container">
@@ -13,10 +14,10 @@ const Navigation = () => {
                         My<span className="jobs">Jobs</span>
                         </Link>
                     </div>
-                    <div className="nav-btn">
-                        <button className="auth">
-                        Login/Signup
-                        </button>
+                    <div className="nav-btn"> 
+                    <Link className="auth authLink" to="/signin">
+                    Login/Signup
+                    </Link>
                     </div>
                 </div>
                 <hr className="line" />
