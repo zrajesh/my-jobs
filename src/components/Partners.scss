@@ -1,0 +1,47 @@
+@import "../scss/variables";
+
+.partners {
+    .partners-title {
+        padding-top: 80px;
+        font-size: 22px;
+        color: $text;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .brands {
+        display: flex;
+        justify-content: center;
+        padding: 50px 0;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .partners {
+        .brands {
+            .brands-image {
+                width: 500px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .partners {
+        .brands {
+            .brands-image {
+                width: 300px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .partners {
+        .brands {
+            .brands-image {
+                width: 280px;
+            }
+        }
+    }
+}
+

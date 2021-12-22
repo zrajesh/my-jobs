@@ -1,0 +1,55 @@
+@import "../scss/variables";
+
+.why {
+    margin: 0 10%;
+    .why-content {
+        .why-title {
+            padding-top: 100px;
+            font-size: 22px;
+            color: $text;
+        }
+        .why-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 40px;
+            .why-card {
+                width: 341px;
+                height: 180px;
+                background: $white;
+                box-shadow: 0px 3px 6px $card_border;
+                border-radius: 5px;
+                .card-title {
+                    color: $blue;
+                    margin-top: 20px;
+                    margin-bottom: 15px;
+                    margin-left: 20px;
+                    p {
+                        font-size: 22px;
+                        font-weight: bold;
+                    }
+                }
+                .card-desc {
+                    color: $header_first;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .why {
+        .why-content {
+            .why-cards {
+                .why-card {
+                    width: 341px;
+                    height: 192px;
+                }
+            }
+        }
+    }
+}
