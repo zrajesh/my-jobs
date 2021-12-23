@@ -1,0 +1,67 @@
+@import "../scss/variables";
+
+.portal-header {
+    height: 210px;
+    background-color: $header_bg;
+    color: $white;
+    position: relative;
+    .nav-items {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 5%;
+        .nav-logo {
+            .logo {
+                font-size: 22px;
+                font-weight: bold;
+                text-decoration: none;
+                color: $white;
+                .jobs {
+                    color: $blue;
+                }
+            }
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            .link {
+                font-size: 16px;
+                color: $white;
+                text-decoration: none;
+            }
+            .profile {
+                background-color: $profile_bg;
+                border-radius: 25px;
+                padding: 2px 10px;
+                cursor: pointer;
+                p {
+                    font-size: 18px;
+                    color: $text;
+                }
+            }
+        }
+    }
+    .line {
+        width: 100%;
+        border: 1px solid $header_second;
+        width: 90vw;
+        margin: 0 auto;
+    }
+    .header-body {
+        margin-left: 12%;
+        margin-top: 15px;
+        .header-home {
+            font-size: 12px;
+            .home {
+                margin-left: 6px;
+            }
+        }
+        .header-title {
+            margin-top: 15px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    }
+}
+
