@@ -1,1 +1,263 @@
+@import "../scss/variables";
+
+.signUp {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    .signup-card {
+        background-color: $white;
+        box-shadow: 0px 30px 36px $card_border;
+        border-radius: 20px;
+        width: 557px;
+        height: 680px;
+        .signup-title {
+            margin-left: 5%;
+            padding-top: 5%;
+            font-size: 22px;
+            color: $text;
+            font-weight: bold;
+        }
+        .user-type {
+            margin-top: 22px;
+            margin-left: 5%;
+            p {
+                font-size: 14px;
+                color: $text;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+            .recruitment-btn {
+                background-color: $blue;
+                margin-right: 15px;
+                border: 1px solid $blue;
+                cursor: pointer;
+                .user-logo {
+                    color: $white;
+                }
+                .user-text {
+                    color: $white;
+                }
+            }
+            .candidate-btn {
+                border: 1px solid $card_border;
+                cursor: pointer;
+            }
+            button {
+                padding: 8px 15px;
+                outline: none;
+                border-radius: 5px;
+            }
+
+            .user-logo {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+        }
+        .signup-form {
+            margin-left: 5%;
+            margin-top: 5%;
+            .field {
+                .label {
+                    display: block;
+                    font-size: 14px;
+                    color: $text;
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                }
+                .inputBox {
+                    background: #e8e8e833;
+                    border: 1px solid #C6C6C6;
+                    border-radius: 5px;
+                    height: 35px;
+                    width: 497px;
+                    padding-left: 10px;
+                    margin-bottom: 15px;
+                }
+                input:focus {
+                    border: 1px solid $blue;
+                    outline: none;
+                }
+            }
+            .password-wrap {
+                display: flex;
+                gap: 15px;
+                .inputBox {
+                    width: 210px;
+                }
+            }
+            .submit {
+                background-color: $blue;
+                color: $white;
+                cursor: pointer;
+                border: 1px solid $blue;
+                border-radius: 5px;
+                width: 148px;
+                height: 46px;
+                font-size: 16px;
+                position: absolute;
+                left: 50%;   
+                transform: translateX(-50%);
+                outline: none;
+                margin: 5px 0;
+            }
+            .forgot {
+                position: absolute;
+                right: 40px;
+                font-size: 14px;
+                text-decoration: none;
+                color: $blue;
+                font-weight: bold;
+            }
+        }
+        .info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: $text;
+            .create-account {
+                text-decoration: none;
+                color: $blue;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .signUp {
+        .signup-card {
+            width: 450px;
+            height: 600px;
+            .signup-form {
+                .field {
+                    .inputBox {
+                        height: 35px;
+                        width: 390px;
+                    }
+                }
+                .password-wrap {
+                    display: flex;
+                    gap: 15px;
+                    .inputBox {
+                        width: 190px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .signUp {
+        .signup-card {
+            width: 350px;
+            height: 620px;
+            .signup-form {
+                .field {
+                    .inputBox {
+                        height: 35px;
+                        width: 300px;
+                    }
+                }
+                .password-wrap {
+                    display: flex;
+                    gap: 15px;
+                    .inputBox {
+                        width: 145px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .signUp {
+        .signup-card {
+            width: 290px;
+            height: 670px;
+            .signup-form {
+                .field {
+                    .inputBox {
+                        height: 35px;
+                        width: 250px;
+                    }
+                }
+                .password-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+                    .inputBox {
+                        width: 250px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .signUp {
+        .signup-card {
+            width: 250px;
+            height: 710px;
+            .user-type {
+                margin-top: 22px;
+                margin-left: 5%;
+                p {
+                    font-size: 14px;
+                    color: $text;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                }
+                .recruitment-btn {
+                    background-color: $blue;
+                    margin-right: 15px;
+                    border: 1px solid $blue;
+                    cursor: pointer;
+                    .user-logo {
+                        color: $white;
+                    }
+                    .user-text {
+                        color: $white;
+                    }
+                }
+                .candidate-btn {
+                    border: 1px solid $card_border;
+                    cursor: pointer;
+                }
+                button {
+                    padding: 8px 15px;
+                    outline: none;
+                    border-radius: 5px;
+                    margin-bottom: 12px;
+                }
+            }
+            .signup-form {
+                .field {
+                    .inputBox {
+                        height: 35px;
+                        width: 220px;
+                    }
+                }
+                .password-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+                    .inputBox {
+                        width: 220px;
+                    }
+                }
+                p {
+                    padding-bottom: 25px;
+                }
+            }
+        }
+    }
+}
 
