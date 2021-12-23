@@ -6,7 +6,14 @@ const Forgot = () => {
     return (
         <div>
             <RegularHeader />
+            <div
+             style={{
+                backgroundColor: "#EDF6FF",
+                height: "500px"
+             }}
+            >
             <ForgotComp />
+            </div>
         </div>
     );
 };

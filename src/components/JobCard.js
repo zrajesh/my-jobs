@@ -2,7 +2,12 @@ import React from 'react';
 
 import "./JobCard.scss";
 
-const JobCard = ({title, description, location}) => {
+const JobCard = ({title, description, location, setPopup}) => {
+
+    function showCandidates() {
+        setPopup(true);
+    }
+
     return (
         <div className="job-card">
             <div className="contents">
@@ -13,11 +18,13 @@ const JobCard = ({title, description, location}) => {
 
                 <div className="card-footer">
                 <p>
-                <i class="location-icon fas fa-map-marker-alt"></i>
+                <i className="location-icon fas fa-map-marker-alt"></i>
                 <span className="location">{location}</span>
                 </p>
                 <div>
-                <button className="view-btn">
+                <button
+                 onClick={showCandidates}
+                 className="view-btn">
                 View Applications
                 </button>
                 </div>

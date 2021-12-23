@@ -2,7 +2,8 @@
 
 .portal-body {
     background-color: $body_bg;
-    min-height: 500px;
+    min-height: 900px;
+    position: relative;
     .empty-message {
         display: none;
         text-align: center;
@@ -32,6 +33,131 @@
         flex-wrap: wrap;
         margin-left: 12%;
         gap: 20px;
+    }
+    .applicant{
+        position: absolute;
+        left: 50%;
+        top: -110px;
+        transform: translateX(-50%);
+        z-index: 100;
+        width: 694px;
+        height: 731px;
+        background: $white;
+        box-shadow: 0px 30px 36px $card_border;
+        border-radius: 20px;
+        .applicant-contents {
+            margin: 0 5%;
+            .applicant-head {
+                .applicant-nav {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 19px;
+                    color: $text;
+                    margin: 10px 0;
+                    .cancel {
+                        cursor: pointer;
+                    }
+                }
+                .app-count {
+                    margin-top: 10px;
+                    margin-bottom: 7px;
+                    font-size: 15px;
+                    color: $text;
+                    font-weight: bold;
+                }
+            }
+            .applicant-body {
+                width: 640px;
+                height: 598px;
+                overflow: scroll;
+                background: #A9AFBC;
+                border-radius: 10px;
+                position: relative;
+                .empty-body {
+                    display: none;
+                    position: absolute;
+                    top: 40%;
+                    left: 50%;
+                    transform: translate(-50%, -40%);
+                    text-align: center;
+                    .empty-icon {
+                        font-size: 80px;
+                    }
+                    .empty-title {
+                        font-size: 20px;
+                        color: $text;
+                        margin-top: 10px;
+                    }
+                }
+                .applicant-list {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .portal-body {
+        .applicant{
+            width: 500px;
+            height: 731px;
+            .applicant-contents {
+                .applicant-body {
+                    width: 400px;
+                    height: 598px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .portal-body {
+        .applicant{
+            width: 400px;
+            height: 731px;
+            .applicant-contents {
+                .applicant-body {
+                    width: 350px;
+                    height: 598px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .portal-body {
+        .applicant{
+            width: 300px;
+            height: 731px;
+            .applicant-contents {
+                .applicant-body {
+                    width: 250px;
+                    height: 598px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .portal-body {
+        .applicant{
+            width: 260px;
+            height: 731px;
+            .applicant-contents {
+                .applicant-body {
+                    width: 250px;
+                    height: 598px;
+                }
+            }
+        }
     }
 }
 

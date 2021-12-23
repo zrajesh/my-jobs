@@ -16,6 +16,7 @@ const SignIn = () => {
                      type="email" 
                      id="email" 
                      placeholder="Enter your email"
+                     required
                     />
                 </div>
                 <p>
@@ -30,6 +31,7 @@ const SignIn = () => {
                      type="password" 
                      id="password" 
                      placeholder="Enter your password"
+                     required
                     />
                 </div>
                 <input

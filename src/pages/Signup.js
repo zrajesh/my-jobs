@@ -6,7 +6,14 @@ const Signup = () => {
     return (
         <div>
             <RegularHeader />
+            <div
+             style={{
+                backgroundColor: "#EDF6FF",
+                height: "600px"
+            }}
+            >
             <SignUp />
+            </div>
         </div>
     );
 };
