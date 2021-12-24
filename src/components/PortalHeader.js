@@ -23,7 +23,7 @@ const PortalHeader = () => {
                 </div>
                 <div className="nav-links">
                     <div>
-                        <Link className="link" to="/portal/postjobs">
+                        <Link className="link" to="/postjobs">
                         Post a Job
                         </Link>
                     </div>

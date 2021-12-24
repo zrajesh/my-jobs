@@ -23,7 +23,7 @@ const PortalBody = () => {
             return data;
         })
         .catch(err => console.log(err))
-    },[])
+    }, [jobs])
 
     function hideCandidates() {
         setPopup(false);
@@ -61,7 +61,7 @@ const PortalBody = () => {
                 Your posted jobs will show here!
                 </p>
                 <button
-                 onClick={() => navigate("/portal/postjobs")}
+                 onClick={() => navigate("/postjobs")}
                  className="empty-btn">
                 Post a Job
                 </button>

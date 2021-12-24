@@ -20,7 +20,7 @@ function App() {
         <Route path="/reset" element={<Forgot />} />
         <Route path="/resetpassword" element={<Reset />} />
         <Route path="/portal" element={<TeacherPortal />} />
-        <Route path="/portal/postjobs" element={<PostJob />} />
+        <Route path="/postjobs" element={<PostJob />} />
       </Routes>
     </BrowserRouter>
     </div>
