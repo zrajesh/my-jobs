@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { authenticate, isAuthenticated, resetPassword } from '../Auth/auth';
+import { authenticate, resetPassword } from '../Auth/auth';
 
 import "./ResetComp.scss";
 
@@ -15,8 +15,7 @@ const ResetComp = () => {
         redirect: false
     });
 
-    const {password, confirmPassword, error, redirect, token} = values;
-    const {user} = isAuthenticated;
+    const {password, confirmPassword, error, token} = values;
 
     const handleChange = name => event => {
         setValues({

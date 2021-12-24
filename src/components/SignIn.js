@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signin, authenticate, isAuthenticated } from '../Auth/auth';
+import { signin, authenticate } from '../Auth/auth';
 
 import "./SignIn.scss";
 
@@ -14,8 +14,7 @@ const SignIn = () => {
         redirect: false
     });
 
-    const {email, password, error, redirect} = values;
-    const {user} = isAuthenticated;
+    const {email, password, error} = values;
 
     const handleChange = name => event => {
         setValues({

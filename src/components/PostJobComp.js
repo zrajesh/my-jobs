@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
-import { authenticate, createJob, isAuthenticated } from '../Auth/auth';
+import { authenticate, createJob } from '../Auth/auth';
 
 import "./PostJobComp.scss";
 
@@ -19,8 +19,8 @@ const PostJobComp = () => {
         redirect: false
     });
 
-    const {title, description, location, error, redirect} = values;
-    const {user} = isAuthenticated;
+    const {title, description, location} = values;
+
 
     const handleChange = name => event => {
         setValues({

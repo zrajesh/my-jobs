@@ -9,16 +9,6 @@ const Why = () => {
             <div className="why-content">
                 <h3 className="why-title">Why Us</h3>
                 <div className="why-cards">
-                    { /* <div className="why-card">
-                        <div className="card-title">
-                            <p>Get More <br /> Misibility</p>
-                        </div>
-                        <div className="card-desc">
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                            </p>
-                        </div>
-                    </div> */}
                     <Adcard 
                      titleOne="Get More" 
                      titleTwo="Misibility"

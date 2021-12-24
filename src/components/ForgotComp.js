@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signin, authenticate, isAuthenticated, getToken } from '../Auth/auth';
+import { authenticate, getToken } from '../Auth/auth';
 
 import "./ForgotComp.scss";
 
@@ -13,8 +13,7 @@ const ForgotComp = () => {
         redirect: false
     });
 
-    const {email, error, redirect} = values;
-    const {user} = isAuthenticated;
+    const {email, error} = values;
 
     const handleChange = name => event => {
         setValues({
