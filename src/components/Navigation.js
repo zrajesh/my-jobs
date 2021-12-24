@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { isAuthenticated, signout } from '../Auth/auth';
 
 import "./Navigation.scss";
 
 const Navigation = () => {
+    const [isAuth, setIsAuth] = useState(isAuthenticated());
+    const logOutUser = () => {
+        setIsAuth(!isAuthenticated())
+        signout(() => {
+            console.log("Logging out...");
+        })
+    }
 
     return (
         <nav className="navigation">
@@ -14,11 +22,22 @@ const Navigation = () => {
                         My<span className="jobs">Jobs</span>
                         </Link>
                     </div>
-                    <div className="nav-btn"> 
-                    <Link className="auth authLink" to="/signin">
-                    Login/Signup
-                    </Link>
-                    </div>
+                    {
+                        isAuth ? 
+                        <div
+                         onClick={logOutUser}
+                         className="nav-btn"> 
+                            <Link className="auth authLink" to="/">
+                            Logout
+                            </Link>
+                        </div>
+                        : 
+                        <div className="nav-btn"> 
+                            <Link className="auth authLink" to="/signin">
+                            Login/Signup
+                            </Link>
+                        </div>
+                    }
                 </div>
                 <hr className="line" />
             </div>

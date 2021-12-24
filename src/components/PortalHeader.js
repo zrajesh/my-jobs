@@ -1,9 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { signout } from '../Auth/auth';
 
 import "./PortalHeader.scss";
 
 const PortalHeader = () => {
+    let navigate = useNavigate();
+    const logOutUser = () => {
+        signout(() => {
+            console.log("Logging out...");
+        })
+        navigate("/");
+    }
+
     return (
         <div className="portal-header">
             <div className="nav-items">
@@ -17,6 +26,11 @@ const PortalHeader = () => {
                         <Link className="link" to="/portal/postjobs">
                         Post a Job
                         </Link>
+                    </div>
+                    <div
+                     onClick={logOutUser}
+                     className="link">
+                        <p>Logout</p>
                     </div>
                     <div className="profile">
                         <p>R</p>

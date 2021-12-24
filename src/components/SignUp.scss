@@ -5,6 +5,17 @@
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
+    .message {
+        h3 {
+            text-align: center;
+            color: $white;
+            font-size: 20px;
+            margin-bottom: 10px;
+            .link {
+                color: $blue;
+            }
+        }
+    }
     .signup-card {
         background-color: $white;
         box-shadow: 0px 30px 36px $card_border;

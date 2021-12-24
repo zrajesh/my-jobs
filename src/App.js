@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Forgot from "./pages/Forgot";
 import TeacherPortal from "./pages/TeacherPortal";
 import PostJob from "./pages/PostJob";
+import Reset from "./pages/Reset";
 
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/reset" element={<Forgot />} />
+        <Route path="/resetpassword" element={<Reset />} />
         <Route path="/portal" element={<TeacherPortal />} />
         <Route path="/portal/postjobs" element={<PostJob />} />
       </Routes>

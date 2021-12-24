@@ -1,51 +1,72 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getRecruiterJobs } from '../Auth/auth';
 import ApplicantCard from './ApplicantCard';
 import JobCard from './JobCard';
 
 import "./PortalBody.scss";
 
 const PortalBody = () => {
+    let navigate = useNavigate();
     const [popup, setPopup] = useState(false);
+    let userToken = JSON.parse(localStorage.getItem("token")).data.token;
+
+    const [jobs, setJobs] = useState([]);
+    const [success, setSuccess] = useState(false);
+
+    useEffect(() => {
+        getRecruiterJobs(userToken)
+        .then(data => {
+            setJobs(data.data.data)
+            setSuccess(data.success)
+            return data;
+        })
+        .catch(err => console.log(err))
+    },[])
 
     function hideCandidates() {
         setPopup(false);
     }
-
+    
+    
     return (
         <div className="portal-body">
-            {/* Empty message */}
-            <div className="empty-message">
+            
+            {
+                success === true ?
+                /* Job listings */
+                <div className="appiled-cards">
+                {
+                    jobs.map(item => {
+                        return (
+                        <JobCard
+                        key={item.id} 
+                        title={item.title}
+                        description={item.description}
+                        location={item.location}
+                        setPopup={setPopup}
+                        />
+                    )})
+                    
+                }
+                </div>
+                :
+                /* Empty message */
+                <div className="empty-message">
                 <div>
                 <i className="note-icon fas fa-clipboard-list"></i>
                 </div>
                 <p className="empty-title">
                 Your posted jobs will show here!
                 </p>
-                <button className="empty-btn">
+                <button
+                 onClick={() => navigate("/portal/postjobs")}
+                 className="empty-btn">
                 Post a Job
                 </button>
             </div>
-        {/* Job listings */}
-        <div className="appiled-cards">
-            <JobCard 
-             title="UI UX Designer"
-             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt…"
-             location="Bengaluru"
-             setPopup={setPopup}
-            />
-            <JobCard 
-             title="Front-end Designer"
-             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt…"
-             location="Gurgaon"
-             setPopup={setPopup}
-            />
-            <JobCard 
-             title="Java Developer"
-             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt…"
-             location="Bengaluru"
-             setPopup={setPopup}
-            />
-        </div>
+            }
+            
         {
             popup === true ?
             <>
