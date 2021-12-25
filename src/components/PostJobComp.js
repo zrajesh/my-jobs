@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import { authenticate, createJob } from '../Auth/auth';
 
 import "./PostJobComp.scss";
