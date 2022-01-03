@@ -32,7 +32,12 @@ const SignIn = () => {
         event.preventDefault();
         setValues({
             ...values,
-            error: false
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            error: false,
+            redirect: false
         })
         signin({
             email: email,
