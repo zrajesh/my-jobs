@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
 import { authenticate, createJob } from '../Auth/auth';
 
 import "./PostJobComp.scss";
 
 const PostJobComp = ({setPostClick}) => {
     let userToken = JSON.parse(localStorage.getItem("token")).data.token;
-
-    let navigate = useNavigate();
 
     const [values, setValues] = useState({
         "title": "",
