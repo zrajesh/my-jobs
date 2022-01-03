@@ -1,14 +1,12 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { getRecruiterJobs } from '../Auth/auth';
 import ApplicantCard from './ApplicantCard';
 import JobCard from './JobCard';
+import PostJob from './PostJob';
 
 import "./PortalBody.scss";
 
-const PortalBody = () => {
-    let navigate = useNavigate();
+const PortalBody = ({postClick, setPostClick}) => {
     const [popup, setPopup] = useState(false);
     let userToken = JSON.parse(localStorage.getItem("token")).data.token;
 
@@ -23,7 +21,11 @@ const PortalBody = () => {
             return data;
         })
         .catch(err => console.log(err))
-    }, [jobs])
+    })
+
+    function showForm() {
+        setPostClick(true);
+    }
 
     function hideCandidates() {
         setPopup(false);
@@ -32,41 +34,45 @@ const PortalBody = () => {
     
     return (
         <div className="portal-body">
-            
             {
-                success === true ?
-                /* Job listings */
-                <div className="appiled-cards">
-                {
-                    jobs.map(item => {
-                        return (
-                        <JobCard
-                        key={item.id} 
-                        title={item.title}
-                        description={item.description}
-                        location={item.location}
-                        setPopup={setPopup}
-                        />
-                    )})
-                    
-                }
+                postClick ?
+                <PostJob setPostClick={setPostClick} /> :
+                
+                    success === true ?
+                    /* Job listings */
+                    <div className="appiled-cards">
+                    {
+                        jobs.map(item => {
+                            return (
+                            <JobCard
+                            key={item.id} 
+                            title={item.title}
+                            description={item.description}
+                            location={item.location}
+                            setPopup={setPopup}
+                            />
+                        )})
+                        
+                    }
+                    </div>
+                    :
+                    /* Empty message */
+                    <div className="empty-message">
+                    <div>
+                    <i className="note-icon fas fa-clipboard-list"></i>
+                    </div>
+                    <p className="empty-title">
+                    Your posted jobs will show here!
+                    </p>
+                    <button
+                    onClick={showForm}
+                    className="empty-btn">
+                    Post a Job
+                    </button>
                 </div>
-                :
-                /* Empty message */
-                <div className="empty-message">
-                <div>
-                <i className="note-icon fas fa-clipboard-list"></i>
-                </div>
-                <p className="empty-title">
-                Your posted jobs will show here!
-                </p>
-                <button
-                 onClick={() => navigate("/postjobs")}
-                 className="empty-btn">
-                Post a Job
-                </button>
-            </div>
+                
             }
+            
             
         {
             popup === true ?
@@ -79,8 +85,8 @@ const PortalBody = () => {
                     <h3>Applicants for this job</h3>
                     <p>
                     <i 
-                     onClick={hideCandidates}
-                     className="cancel fas fa-times"></i>
+                    onClick={hideCandidates}
+                    className="cancel fas fa-times"></i>
                     </p>
                 </div>
                 <hr className="applicant-line" />
@@ -147,9 +153,9 @@ const PortalBody = () => {
                      skills="Coding, designing, graphics, website, app ui"
                     />
                     <ApplicantCard
-                     name="Roger Reid"
-                     email="abc123@gmail.com"
-                     skills="Coding, designing, graphics, website, app ui"
+                    name="Roger Reid"
+                    email="abc123@gmail.com"
+                    skills="Coding, designing, graphics, website, app ui"
                     />
                 </div>
             </div>

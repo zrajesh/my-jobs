@@ -1,10 +1,13 @@
 import React from 'react';
 import Navigation from './Navigation';
 import employee from "../assets/employee.png";
+import { useNavigate } from 'react-router-dom';
 
 import "./Header.scss";
 
 const Header = () => {
+    const navigate = useNavigate();
+
     return (
         <header className="header">
             <Navigation />
@@ -15,7 +18,10 @@ const Header = () => {
                     My<span className="title-jobs">Jobs</span>
                     </h1>
                     <div className="head-btn-wrap">
-                        <button className="head-btn">
+                        <button
+                        onClick={() => navigate("/signin")}
+                        className="head-btn"
+                        >
                         Get Started
                         </button>
                     </div>

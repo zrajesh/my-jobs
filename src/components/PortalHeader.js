@@ -4,13 +4,17 @@ import { signout } from '../Auth/auth';
 
 import "./PortalHeader.scss";
 
-const PortalHeader = () => {
+const PortalHeader = ({setPostClick}) => {
     let navigate = useNavigate();
     const logOutUser = () => {
         signout(() => {
             console.log("Logging out...");
         })
         navigate("/");
+    }
+
+    const showForm = () => {
+        setPostClick(true);
     }
 
     return (
@@ -23,13 +27,17 @@ const PortalHeader = () => {
                 </div>
                 <div className="nav-links">
                     <div>
-                        <Link className="link" to="/postjobs">
+                        <Link 
+                        className="link" 
+                        to="#"
+                        onClick={showForm}
+                        >
                         Post a Job
                         </Link>
                     </div>
                     <div
-                     onClick={logOutUser}
-                     className="link">
+                    onClick={logOutUser}
+                    className="link">
                         <p>Logout</p>
                     </div>
                     <div className="profile">

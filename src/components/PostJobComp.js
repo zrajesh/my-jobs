@@ -4,9 +4,8 @@ import { authenticate, createJob } from '../Auth/auth';
 
 import "./PostJobComp.scss";
 
-const PostJobComp = () => {
+const PostJobComp = ({setPostClick}) => {
     let userToken = JSON.parse(localStorage.getItem("token")).data.token;
-
 
     let navigate = useNavigate();
 
@@ -20,17 +19,12 @@ const PostJobComp = () => {
 
     const {title, description, location} = values;
 
-
     const handleChange = name => event => {
         setValues({
             ...values,
             error: false,
             [name]: event.target.value
         })
-    }
-
-    const doRedirect = () => {
-        return navigate("/portal");
     }
 
     const onSubmitHandle = event => {
@@ -63,12 +57,12 @@ const PostJobComp = () => {
                         error: false,
                         redirect: true
                     })
-                    /* Redirecting user to dashboard */ 
-                    doRedirect()
                 })
             }
         })
         .catch(err => console.log("JOB POST ERR: ", err))
+        // close form
+        setPostClick(false);
     }
 
     return (
@@ -76,50 +70,50 @@ const PostJobComp = () => {
             <div className="postjob-card">
                 <h3 className="postjob-title">Post a Job</h3>
                 <form 
-                 onSubmit={onSubmitHandle}
-                 className="postjob-form">
+                onSubmit={onSubmitHandle}
+                className="postjob-form">
                 <div className="field">
                     <label className="label" htmlFor="title">Job title*</label>
                     <input
-                     className="inputBox" 
-                     type="text" 
-                     id="title" 
-                     placeholder="Enter job title"
-                     onChange={handleChange("title")}
-                     value={title}
-                     required
+                    className="inputBox" 
+                    type="text" 
+                    id="title" 
+                    placeholder="Enter job title"
+                    onChange={handleChange("title")}
+                    value={title}
+                    required
                     />
                 </div>
 
                 <div className="field">
                     <label className="label" htmlFor="description">Description*</label>
                     <textarea
-                     className="inputBox" 
-                     type="text" 
-                     id="description" 
-                     placeholder="Enter job description"
-                     onChange={handleChange("description")}
-                     value={description}
-                     required
+                    className="inputBox" 
+                    type="text" 
+                    id="description" 
+                    placeholder="Enter job description"
+                    onChange={handleChange("description")}
+                    value={description}
+                    required
                     ></textarea>
                 </div>
 
                 <div className="field">
                     <label className="label" htmlFor="location">Location*</label>
                     <input
-                     className="inputBox" 
-                     type="text" 
-                     id="location" 
-                     placeholder="Enter location"
-                     value={location}
-                     onChange={handleChange("location")}
-                     required
+                    className="inputBox" 
+                    type="text" 
+                    id="location" 
+                    placeholder="Enter location"
+                    value={location}
+                    onChange={handleChange("location")}
+                    required
                     />
                 </div>
                 <input
-                 className="submit" 
-                 type="submit" 
-                 value="Post" 
+                className="submit" 
+                type="submit" 
+                value="Post" 
                 />
                 </form>
             </div>
