@@ -3,7 +3,7 @@ import { authenticate, createJob } from '../Auth/auth';
 
 import "./PostJobComp.scss";
 
-const PostJobComp = ({setPostClick}) => {
+const PostJobComp = ({setJobs, setPostClick}) => {
     let userToken = JSON.parse(localStorage.getItem("token")).data.token;
 
     const [values, setValues] = useState({
@@ -54,12 +54,12 @@ const PostJobComp = ({setPostClick}) => {
                         error: false,
                         redirect: true
                     })
+                    // close form
+                    setPostClick(false);
                 })
             }
         })
         .catch(err => console.log("JOB POST ERR: ", err))
-        // close form
-        setPostClick(false);
     }
 
     return (

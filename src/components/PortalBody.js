@@ -5,17 +5,16 @@ import JobCard from './JobCard';
 import PostJob from './PostJob';
 
 import "./PortalBody.scss";
-
+// {postClick, setPostClick}
 const PortalBody = ({postClick, setPostClick}) => {
     const [popup, setPopup] = useState(false);
     let userToken = JSON.parse(localStorage.getItem("token")).data.token;
     const [jobs, setJobs] = useState([]);
-    const [success, setSuccess] = useState(false);
-    useEffect(() => {
+
+    useEffect(() => { 
         getRecruiterJobs(userToken)
         .then(data => {
             setJobs(data.data.data)
-            setSuccess(true)
             return data;
         })
         .catch(err => console.log(err))
@@ -29,14 +28,12 @@ const PortalBody = ({postClick, setPostClick}) => {
         setPopup(false);
     }
     
-    
     return (
         <div className="portal-body">
             {
                 postClick ?
-                <PostJob setPostClick={setPostClick} /> :
-                
-                    success === true ?
+                <PostJob setJobs={setJobs} setPostClick={setPostClick} /> :        
+                jobs.length > 0 ?
                     /* Job listings */
                     <div className="appiled-cards">
                     {

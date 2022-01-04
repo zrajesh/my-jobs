@@ -77,7 +77,6 @@ export const getRecruiterJobs = token => {
         }
     })
     .then(resp => {
-        resp.clone().json()
         return resp.json()
     })
     .catch(err => console.log(err))
