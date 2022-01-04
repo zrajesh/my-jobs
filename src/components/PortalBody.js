@@ -9,15 +9,13 @@ import "./PortalBody.scss";
 const PortalBody = ({postClick, setPostClick}) => {
     const [popup, setPopup] = useState(false);
     let userToken = JSON.parse(localStorage.getItem("token")).data.token;
-
     const [jobs, setJobs] = useState([]);
     const [success, setSuccess] = useState(false);
-
     useEffect(() => {
         getRecruiterJobs(userToken)
         .then(data => {
             setJobs(data.data.data)
-            setSuccess(data.success)
+            setSuccess(true)
             return data;
         })
         .catch(err => console.log(err))
