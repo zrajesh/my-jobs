@@ -3,13 +3,25 @@ import { getRecruiterJobs } from '../Auth/auth';
 import ApplicantCard from './ApplicantCard';
 import JobCard from './JobCard';
 import PostJob from './PostJob';
+import {isAuthenticated} from "../Auth/auth";
 
 import "./PortalBody.scss";
-// {postClick, setPostClick}
+import { useNavigate } from 'react-router-dom';
+
 const PortalBody = ({postClick, setPostClick}) => {
     const [popup, setPopup] = useState(false);
-    let userToken = JSON.parse(localStorage.getItem("token")).data.token;
+    let userToken;
     const [jobs, setJobs] = useState([]);
+    const navigate = useNavigate();
+    
+    function Redirect() {
+        if(!isAuthenticated()) {
+            navigate("/signin")
+        } else {
+            userToken = JSON.parse(localStorage.getItem("token")).data.token;
+        }
+    }
+    Redirect();
 
     useEffect(() => { 
         getRecruiterJobs(userToken)
